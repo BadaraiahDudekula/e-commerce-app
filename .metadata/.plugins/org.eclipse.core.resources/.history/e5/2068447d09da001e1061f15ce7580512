@@ -1,0 +1,7 @@
+package org.jsp.ecommerceapp.exceptions;
+
+public class InvalidCredentialException extends RuntimeException{
+	public InvalidCredentialexception(String message) {
+		super(message);
+	}
+}

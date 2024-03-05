@@ -1,0 +1,5 @@
+package org.jsp.ecommerceapp;
+
+public class IdNotFoundException {
+
+}

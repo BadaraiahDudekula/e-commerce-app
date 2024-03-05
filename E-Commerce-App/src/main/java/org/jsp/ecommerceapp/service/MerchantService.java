@@ -1,7 +1,11 @@
 package org.jsp.ecommerceapp.service;
 
+import java.util.Optional;
+
 import org.jsp.ecommerceapp.dao.MerchantDao;
 import org.jsp.ecommerceapp.dto.ResponseStructure;
+import org.jsp.ecommerceapp.exceptions.IdNotFoundException;
+import org.jsp.ecommerceapp.exceptions.InvalidCredentialException;
 import org.jsp.ecommerceapp.model.Merchant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class MerchantService {
 	@Autowired
 	private MerchantDao merchantDao;
-	 
+
 	public ResponseEntity<ResponseStructure<Merchant>> saveMerchant(Merchant merchant){
 		ResponseStructure<Merchant> rs=new ResponseStructure<>();
 		rs.setModel(merchantDao.saveMerchant(merchant));
@@ -20,4 +24,45 @@ public class MerchantService {
 		rs.setStatusCode(HttpStatus.CREATED.value());
 		return new ResponseEntity<ResponseStructure<Merchant>>(rs,HttpStatus.CREATED);
 	}
+
+	public ResponseEntity<ResponseStructure<Merchant>> updateMerchant(Merchant merchant){
+		Optional<Merchant> m=merchantDao.findById(merchant.getId());
+		ResponseStructure<Merchant> rs=new ResponseStructure<>();
+		if(m.isPresent()) {
+			rs.setModel(merchantDao.saveMerchant(merchant));
+			rs.setMessage("Merchant Updated");
+			rs.setStatusCode(HttpStatus.ACCEPTED.value());
+			return new ResponseEntity<ResponseStructure<Merchant>>(rs,HttpStatus.ACCEPTED);
+		}
+		throw new IdNotFoundException();
+	}
+	
+	public ResponseEntity<ResponseStructure<Boolean>> deleteMerchant(int id){
+		Optional<Merchant> m=merchantDao.findById(id);
+		ResponseStructure<Boolean> rs=new ResponseStructure<>();
+		if(m.isPresent()) {
+			rs.setModel(merchantDao.delete(id));
+			rs.setMessage("Merchant Deleted");
+			rs.setStatusCode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<Boolean>>(rs, HttpStatus.OK);
+			
+		}
+		throw new IdNotFoundException();
+	}
+	
+	
+	public ResponseEntity<ResponseStructure<Merchant>> verifyMerchant(String email,String password){
+		Optional<Merchant> m=merchantDao.verify(email, password);
+		ResponseStructure<Merchant> rs=new ResponseStructure<>();
+		if(m.isPresent()) {
+			rs.setModel(m.get());
+			rs.setMessage("Merchant verified");
+			rs.setStatusCode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<Merchant>>(rs,HttpStatus.OK);
+		}
+		throw new InvalidCredentialException("Invalid email or password");
+	}
+	
+
+
 }
