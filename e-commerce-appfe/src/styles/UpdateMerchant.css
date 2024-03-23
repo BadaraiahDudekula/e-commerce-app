@@ -1,0 +1,23 @@
+.merchantupdate form{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    box-shadow: 0px 0px 10px grey;
+    padding: 30px 50px;
+    border-radius: 10px;
+   
+}
+.merchantupdate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+.merchantupdate input,label{
+    margin: 10px 0px;
+    border: none;
+}
+.merchantupdate input{
+    outline: none;
+    border-bottom: 2px solid black;
+
+}

@@ -1,0 +1,23 @@
+.AddProduct form{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    box-shadow: 0px 0px 10px grey;
+    padding: 30px 50px;
+    border-radius: 10px;
+   
+}
+.AddProduct{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+.AddProduct input,label{
+    margin: 10px 0px;
+    border: none;
+}
+.AddProduct input{
+    outline: none;
+    border-bottom: 2px solid black;
+
+}
