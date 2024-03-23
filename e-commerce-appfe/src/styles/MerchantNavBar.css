@@ -1,0 +1,22 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(118, 197, 234);
+    height: 80px;
+    padding: 0px 50px;
+}
+#navbar h1{
+    color: rgb(42, 61, 165);
+}
+#navbar span{
+    color: beige;
+}
+#navbar a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.option a {
+    margin: 0px 30px;
+    font-size: larger;
+}

@@ -1,0 +1,18 @@
+.UserLogin{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20vh 70vh ;
+    padding: 1vh 0vh 6vh 0vh;
+    border: 5px  black;
+    border-radius: 5vh;
+    box-shadow: 0px 0px 20px grey;
+}
+.mb-3{
+text-align: left;
+}
+.head{
+    text-align: center;
+    padding-top: 10px;
+}

@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(144, 240, 240);
+}
+.logo{
+    color: orangered;
+}
+
+.link1{
+    text-decoration-line: none;
+    color: rgb(83, 40, 223);
+    font-size: 30px;
+}

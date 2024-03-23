@@ -1,0 +1,29 @@
+.usersignup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    border: 3px  black;
+    margin: 10vh 60vh 10vh 70vh;
+    box-shadow: 0px 0px 30px grey;
+    border-radius: 5vh;
+    padding-right: 10vh;
+}
+.usersignup form {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    padding: 10px 30px;
+}
+
+.usersignup input,label {
+    margin: 30px 0px;
+    border: none;
+}
+
+.usersignup input {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+.btn{
+    margin-left: 15px;  
+}
