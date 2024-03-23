@@ -10,4 +10,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("select u from User u where u.email=?1 and u.password=?2")
 	Optional<User> verify(String email, String password);
 
+	Optional<User> findByToken(String token);
+
+	Optional<User> findByPhoneAndPassword(long phone, String password);
+
 }

@@ -34,4 +34,14 @@ public class UserDao {
 		return userRepository.verify(email,password);
 	}
 
+	public Optional<User> findByToken(String token) {
+		
+		return userRepository.findByToken(token);
+	}
+
+	public Optional<User> findByPhoneAndPassword(long phone, String password) {
+		
+		return userRepository.findByPhoneAndPassword(phone,password);
+	}
+
 }

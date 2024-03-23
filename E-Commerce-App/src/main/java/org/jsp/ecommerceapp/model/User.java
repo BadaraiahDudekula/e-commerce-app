@@ -1,10 +1,15 @@
 package org.jsp.ecommerceapp.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 @Data
 @Entity
@@ -25,5 +30,15 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	private String status;
+	private String token;
+	@OneToMany(mappedBy = "user")
+	private List<Address> address;
+	@JoinTable(name="user_cart",joinColumns = {@JoinColumn(name="user_id")},inverseJoinColumns = {@JoinColumn(name="product_id")})
+	@OneToMany
+	private List<Product> cart;
+	
+	@JoinTable(name="user_wishlist",joinColumns = {@JoinColumn(name="user_id")},inverseJoinColumns = {@JoinColumn(name="product_id")})
+	@OneToMany
+	private List<Product> wishList;
 
 }

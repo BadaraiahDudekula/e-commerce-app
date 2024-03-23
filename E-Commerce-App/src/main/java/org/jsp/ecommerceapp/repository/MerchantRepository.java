@@ -12,5 +12,7 @@ public interface MerchantRepository extends JpaRepository<Merchant, Integer> {
 	@Query("select m from Merchant m where m.email=?1 and m.password=?2")
 	Optional<Merchant> verify(String email, String password);
 
+	Optional<Merchant> findByToken(String token);
+
 
 }
